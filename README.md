@@ -144,7 +144,7 @@ For testing, you can download pre-trained ONNX models from the [ONNX Model Zoo](
 
 This guide will use one of the pre-trained MNIST models from the Zoo.
 ```sh
-curl https://media.githubusercontent.com/media/onnx/models/master/vision/classification/mnist/model/mnist-7.onnx --output model.onnx
+curl -L https://github.com/onnx/models/raw/refs/heads/main/validated/vision/classification//mnist/model/mnist-7.onnx --output model.onnx
 ```
 
 ### Compute the Model Hash
