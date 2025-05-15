@@ -21,3 +21,4 @@ nohup.out
 *.key
 *.hash
 auth
+my_confonnx_env

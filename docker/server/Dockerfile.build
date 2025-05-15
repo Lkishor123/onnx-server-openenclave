@@ -20,8 +20,7 @@ RUN apt-get update && apt-get -y --no-install-recommends install \
     curl gawk gpg-agent \
     build-essential automake autoconf libtool \
     zlib1g-dev libssl-dev libcurl4-openssl-dev git gdb \
-    python3-pip python3-dev python3-setuptools python3-wheel \
-    protobuf-compiler libprotobuf-dev 
+    python3-pip python3-dev
 
 WORKDIR /tmp
 
