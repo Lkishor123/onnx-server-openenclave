@@ -15,7 +15,7 @@ RUN apt-get update && apt-get -y --no-install-recommends install \
     ca-certificates software-properties-common curl git wget gnupg \
     build-essential clang \
     libssl-dev zlib1g-dev \
-    python3-dev python3-pip python3-setuptools python3-wheel
+    python3-dev python3-pip python3-setuptools python3-wheel protobuf-compiler libprotobuf-dev
 
 ENV CC=clang
 ENV CXX=clang++
@@ -60,7 +60,7 @@ RUN git clone -b ${OE_VERSION} --recursive --depth 1 https://github.com/openencl
     cmake --build . --target install && \
     cd ../.. && rm -rf openenclave/
 
-RUN curl --retry 5 --retry-connrefused -L https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -o miniconda.sh && \
+RUN curl --retry 5 --retry-connrefused -L https://repo.anaconda.com/miniconda/Miniconda3-py37_4.8.2-Linux-x86_64.sh -o miniconda.sh && \
     bash ./miniconda.sh -b -p /usr/share/miniconda && \
     rm miniconda.sh
 

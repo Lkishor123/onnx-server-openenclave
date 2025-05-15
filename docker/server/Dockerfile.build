@@ -20,7 +20,8 @@ RUN apt-get update && apt-get -y --no-install-recommends install \
     curl gawk gpg-agent \
     build-essential automake autoconf libtool \
     zlib1g-dev libssl-dev libcurl4-openssl-dev git gdb \
-    python3-pip python3-dev
+    python3-pip python3-dev python3-setuptools python3-wheel \
+    protobuf-compiler libprotobuf-dev 
 
 WORKDIR /tmp
 
@@ -83,8 +84,17 @@ RUN curl --retry 5 --retry-connrefused https://packages.microsoft.com/keys/micro
     apt-get -y install --no-install-recommends \
     az-dcap-client
 
+# Miniconda Installation (using py37 version - this is a key change)
+RUN curl --retry 5 --retry-connrefused -L https://repo.anaconda.com/miniconda/Miniconda3-py37_4.8.2-Linux-x86_64.sh -o miniconda.sh && \
+    bash ./miniconda.sh -b -p /usr/share/miniconda && \
+    rm miniconda.sh
+
+ENV PATH=/usr/share/miniconda/bin:${PATH}
+
+
 # Python test dependencies
-RUN python3 -m pip install --upgrade pip
+RUN python3 -m pip install --upgrade pip setuptools wheel
 RUN pip3 install six requests numpy onnx protobuf pytest pycryptodome
 
 ENV AZDCAP_CACHE=/tmp
+
