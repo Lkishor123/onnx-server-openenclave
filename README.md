@@ -91,8 +91,19 @@ python3 --version
 ```
 Install:
 ```
-sudo apt install python3
-sudo apt-get install python3-pip
+sudo apt update
+sudo apt install software-properties-common
+sudo add-apt-repository ppa:deadsnakes/ppa
+sudo apt update
+sudo apt install python3.7
+
+sudo apt install python3.7-distutils  # Some systems might need this first
+sudo apt install python3.7-venv      # For virtual environments
+wget https://bootstrap.pypa.io/get-pip.py
+sudo python3.7 get-pip.py
+
+python3.7 -m venv onnx_env
+source onnx_env/bin/activate
 ```
 ### Install Docker
 Install Docker
