@@ -140,7 +140,10 @@ The non-manylinux wheels built above should work on Ubuntu 18.04 and possibly ot
 ### Install the Python wheel
 Install the built library:
 ```sh
+python3.7 -m pip install --upgrade pip setuptools wheel
 python3.7 -m pip install dist/Release/lib/python/confonnx-0.1.0-cp37-cp37m-linux_x86_64.whl
+python3.7 -m pip install "protobuf==3.20.3"
+python3 -m pip install onnx==1.7.0
 ```
 
 ### Build the generic server
